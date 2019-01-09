@@ -37,7 +37,7 @@ Extra state:
 2. Does a single file represent a single game?
 
 
-MY EXPLANATION:
+EXPLANATION:
 state.py - implements a serialize function which serializes the state of the board and stores it in a 3-dimensional array (also does something with castling and binary state which I don't understand)
 
 train.py - parses the games and stores the serialized state of the board at each move and the result of the game in two separate arrays X, Y, and returns these arrays.
