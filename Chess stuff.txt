@@ -1,0 +1,48 @@
+Zero Knowledge Chess Engine
+
+== Usage ==
+
+./play.py # runs webserver on localhost:5000
+
+== Other ==
+
+* Establish the search tree
+* Use a neural net to prune the search tree.
+
+Definition: Value network
+V - f(state)
+
+State(Board):
+
+Pieces(2-6*2 - 16):
+* Universal
+** Blank
+** Blank (En passant)
+* Pieces
+** Pawn
+** Bishop
+** Knight
+** Rook
+** Rook (can castle)
+** Queen
+** King
+
+Extra state:
+* Castle available x4
+* En passant (target square - 64 bits)
+
+8x8x4 + 1 = 257 bits (vector of 0 or 1)
+
+1. Set up OpenCL or something similar.
+2. Does a single file represent a single game?
+
+
+MY EXPLANATION:
+state.py - implements a serialize function which serializes the state of the board and stores it in a 3-dimensional array (also does something with castling and binary state which I don't understand)
+
+train.py - parses the games and stores the serialized state of the board at each move and the result of the game in two separate arrays X, Y, and returns these arrays.
+
+nnet.py - loads the parsed dataset and stores it in X and Y. Implements a NNet class which has a forward propagation function, which returns F.tanh(x). Separates the training data into batches, uses an optimizer and a loss function to readjust the model parameters by using back-propagation (trains the model). Saves the trained model.
+
+play.py - loads in the already trained neural network. Implements an explore_leaves function which iterates over all the possible moves, evaluates how good they are and stores them alongside each other.
+
