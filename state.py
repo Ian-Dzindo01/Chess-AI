@@ -60,9 +60,8 @@ class State(object):
 
         return state
 
-
-def edges(self):
-    return list(self.board.legal_moves)
+    def edges(self):
+        return list(self.board.legal_moves)
 
 
 if __name__ == "__main__":
