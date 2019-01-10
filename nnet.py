@@ -9,7 +9,7 @@ from timeit import default_timer as timer
 
 class ChessValueDataset(Dataset):
     def __init__(self):
-        dat = np.load("D:/Projects/AI/Chess AI/processed/dataset_10M.npz")
+        dat = np.load("D:/Projects/AI/Chess AI/processed/dataset_500K.npz")
         self.X = dat['arr_0']
         self.Y = dat['arr_1']
         print(self.X.shape)
@@ -105,6 +105,6 @@ if __name__ == '__main__':
             num_loss += 1
 
         print(f'{epoch}. Loss: {all_loss/num_loss}, Time took: {timer() - start1}')
-        torch.save(model.state_dict(), "nets/value1.pth")
+        torch.save(model.state_dict(), "nets/value5M.pth")
 
     print(f'The training took: {(timer() - start0)/3600}')
