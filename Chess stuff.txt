@@ -33,9 +33,6 @@ Extra state:
 
 8x8x4 + 1 = 257 bits (vector of 0 or 1)
 
-1. Set up OpenCL or something similar.
-2. Does a single file represent a single game?
-
 
 EXPLANATION:
 state.py - implements a serialize function which serializes the state of the board and stores it in a 3-dimensional array (also does something with castling and binary state which I don't understand)
@@ -46,3 +43,10 @@ nnet.py - loads the parsed dataset and stores it in X and Y. Implements a NNet c
 
 play.py - loads in the already trained neural network. Implements an explore_leaves function which iterates over all the possible moves, evaluates how good they are and stores them alongside each other.
 
+TODOS:
+1. Set up OpenCL or something similar to train faster.
+2. Implement drag and drop functionality.
+3. Train on more data.
+Advanced:
+4. Add RL self play learning support
+5. Roll out search beyond 1-ply
