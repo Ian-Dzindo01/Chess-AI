@@ -1,4 +1,5 @@
 processed/
 play2.py
 nnet2.py
-play3.py
+play2.py
+nets/value5M.pth
