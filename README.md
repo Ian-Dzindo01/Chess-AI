@@ -17,7 +17,7 @@ TODOs
 -----
 1. Set up OpenCL or something similar to train faster.
 2. Implement drag and drop functionality.
-3. Train on more data.
+3. Train on more data.\n
 Advanced:
 4. Add RL self play learning support
 5. Roll out search beyond 1-ply
