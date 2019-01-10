@@ -45,16 +45,19 @@ app = Flask(__name__)
 def hello():
     board_svg = to_svg(s)
     ret = '<html><head>'
+    ret += '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>'
     ret += '<style> input { font-size: 30px; } button { font-size: 30px; }</style>'
     ret += '</head><body>'
+    ret += '<a href="/selfplay">Play vs itself</a></br>'
     ret += '<img width=600 height=600 src="data:image/svg+xml;base64,%s"></img><br/>' % board_svg
-    ret += '<form action="/move"><input name="move" type="text"></input><input type="submit" value="Move"></form><br/>'
+    ret += '<form action="/move"><input id="move" name="move" type="text"></input><input type="submit" value="Move"></form><br/>'
+    ret += '<script>$(function() { var input = document.getElementById("move"); console.log("selected"); input.focus(); input.select();}); </script>'
     return ret
 
 
 def computer_move(s, v):
     # computer move
-    move = sorted(explore_leaves(s, v), key=lambda x: x[0], reverse=s.board.turn)
+    move = sorted(explore_leaves(s, v), key=lambda x: x[0], reverse=s.board.turn)        # -1 means black is winning, 1 means white is winning.
     print('Top 3:')
     for m, i in enumerate(move[0:3]):
         print(' ', i)
