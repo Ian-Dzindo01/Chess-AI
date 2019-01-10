@@ -20,6 +20,7 @@ TODOs
 3. Train on more data.
 
 Advanced:
+
 4. Add RL self play learning support.
 5. Roll out search beyond 1-ply.
 
