@@ -16,13 +16,12 @@ Usage
 TODOs
 -----
 1. Set up OpenCL or something similar to train faster.
-2. Implement drag and drop functionality.
-3. Train on more data.
+2. Train on more data.
 
 Advanced:
 
-4. Add RL self play learning support.
-5. Roll out search beyond 1-ply.
+3. Add RL self play learning support.
+4. Roll out search beyond 1-ply.
 
 Implementation
 -----
