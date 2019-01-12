@@ -15,7 +15,7 @@ Usage
 
 TODOs
 -----
-1. Set up OpenCL or something similar to train faster.
+1. Set up OpenCL or something similar to train faster (try using Google Colab).
 2. Train on more data.
 
 Advanced:
