@@ -15,13 +15,12 @@ Usage
 
 TODOs
 -----
-1. Implement en passant and castling.
-2. Implement a score function which evaluates how well the computer is playing.
+1. Implement a score function which evaluates how well the computer is playing.
 
 Advanced:
 
-3. Add RL self play learning support.
-4. Roll out search beyond 1-ply.
+2. Add RL self play learning support.
+3. Roll out search beyond 1-ply.
 
 Implementation
 -----
