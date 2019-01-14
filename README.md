@@ -21,7 +21,7 @@ TODOs
 Advanced:
 
 3. Add RL self play learning support.
-4. Roll out search beyond 1-ply.
+4. ~~Roll out search beyond 1-ply~~.
 
 Implementation
 -----
