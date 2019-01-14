@@ -7,6 +7,7 @@ import time
 import base64
 import traceback
 import os
+import collections
 
 
 class Valuator(object):
@@ -21,11 +22,24 @@ class Valuator(object):
         return float(output.data[0][0])
 
 
-def explore_leaves(s, v):               # this function iterates over all the available moves and stores the move and how good the move is.
+def explore_leaves1ply(s, v):               # this function iterates over all the available moves and stores the move and how good the move is.
     ret = []
     for e in s.edges():                 # s.edges returns the list of legal moves
         s.board.push(e)
         ret.append((v(s), e))
+        s.board.pop()
+    return ret
+
+
+def explore_leaves2ply(s, v):
+    ret = []
+    for e1 in s.edges():
+        s.board.push(e1)
+        tempv = v(s)
+        for e2 in s.edges():                # hopefully, it doesn't switch the control here
+            s.board.push(e2)
+            ret.append((v(s) + tempv, (e1, e2)))     # does the changing of the state of the board between these moves matter? Should you evaluate the 2 next moves at each move, or each second move?
+            s.board.pop()
         s.board.pop()
     return ret
 
@@ -51,11 +65,11 @@ def hello():
 
 def computer_move(s, v):
     # computer move
-    move = sorted(explore_leaves(s, v), key=lambda x: x[0], reverse=s.board.turn)        # -1 means black is winning, 1 means white is winning.
-    print('Top 3:')
-    for m, i in enumerate(move[0:3]):
+    move = sorted(explore_leaves2ply(s, v), key=lambda x: x[0], reverse=s.board.turn)        # -1 means black is winning, 1 means white is winning.
+    print('Top 10:')
+    for m, i in enumerate(move[0:10]):
         print(' ', i)
-    s.board.push(move[0][1])
+    s.board.push(move[0][1][0])
 
 
 @app.route("/selfplay")
@@ -126,6 +140,16 @@ def move_coordinates():
     print("GAME IS OVER")
     response = app.response_class(
         response="game over",
+        status=200
+    )
+    return response
+
+
+@app.route("/newgame")
+def newgame():
+    s.board.reset()
+    response = app.response_class(
+        response=s.board.fen(),
         status=200
     )
     return response

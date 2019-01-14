@@ -36,5 +36,5 @@ def get_dataset(num_samples=None):
 
 
 if __name__ == "__main__":
-    X, Y = get_dataset(500000)
-    np.savez("D:/Projects/AI/Chess AI/processed/dataset_500K.npz", X, Y)
+    X, Y = get_dataset(3000000)
+    np.savez("D:/Projects/AI/Chess AI/processed/dataset_3M.npz", X, Y)
