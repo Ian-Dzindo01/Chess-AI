@@ -31,17 +31,34 @@ def explore_leaves1ply(s, v):               # this function iterates over all th
     return ret
 
 
-def explore_leaves2ply(s, v):
-    ret = []
-    for e1 in s.edges():
-        s.board.push(e1)
-        tempv = v(s)
-        for e2 in s.edges():                # hopefully, it doesn't switch the control here
-            s.board.push(e2)
-            ret.append((v(s) + tempv, (e1, e2)))     # does the changing of the state of the board between these moves matter? Should you evaluate the 2 next moves at each move, or each second move?
-            s.board.pop()
-        s.board.pop()
-    return ret
+# def explore_leaves2ply(s, v):
+#     ret = []
+#     for e1 in s.edges():
+#         s.board.push(e1)
+#         tempv = v(s)
+#         for e2 in s.edges():                # hopefully, it doesn't switch the control here
+#             s.board.push(e2)
+#             ret.append((v(s) + tempv, (e1, e2)))     # does the changing of the state of the board between these moves matter? Should you evaluate the 2 next moves at each move, or each second move?
+#             s.board.pop()
+#         s.board.pop()
+#     return ret
+
+
+# def explore_leaves3ply(s, v):
+#     ret = []
+#     for e1 in s.edges():
+#         s.board.push(e1)
+#         tempv1 = v(s)
+#         for e2 in s.edges():                # hopefully, it doesn't switch the control here
+#             s.board.push(e2)
+#             tempv2 = v(s)
+#             for e3 in s.edges():
+#                 s.board.push(e3)
+#                 ret.append((v(s) + tempv1 + tempv2, (e1, e2, e3)))     # does the changing of the state of the board between these moves matter? Should you evaluate the 2 next moves at each move, or each second move?
+#                 s.board.pop()
+#             s.board.pop()
+#         s.board.pop()
+#     return ret
 
 
 def to_svg(s):
@@ -65,11 +82,11 @@ def hello():
 
 def computer_move(s, v):
     # computer move
-    move = sorted(explore_leaves2ply(s, v), key=lambda x: x[0], reverse=s.board.turn)        # -1 means black is winning, 1 means white is winning.
+    move = sorted(explore_leaves1ply(s, v), key=lambda x: x[0], reverse=s.board.turn)        # -1 means black is winning, 1 means white is winning.
     print('Top 10:')
     for m, i in enumerate(move[0:10]):
         print(' ', i)
-    s.board.push(move[0][1][0])
+    s.board.push(move[0][1])                         # change this when switching from 1-ply to 2-ply or 3-ply.
 
 
 @app.route("/selfplay")
