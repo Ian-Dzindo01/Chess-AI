@@ -17,6 +17,7 @@ TODOs
 -----
 1. Set up OpenCL or something similar to train faster (try using Google Colab).
 2. Train on more data.
+3. Implement a score function which evaluates how well the computer is playing.
 
 Advanced:
 
