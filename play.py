@@ -38,7 +38,7 @@ def explore_leaves1ply(s, v):               # this function iterates over all th
 #         tempv = v(s)
 #         for e2 in s.edges():                # hopefully, it doesn't switch the control here
 #             s.board.push(e2)
-#             ret.append((v(s) + tempv, (e1, e2)))     # does the changing of the state of the board between these moves matter? Should you evaluate the 2 next moves at each move, or each second move?
+#             ret.append((v(s) + tempv, (e1, e2)))     # QUESTION: Does the changing of the board state between these moves matter? Should you evaluate the 2 next moves at each move, or each second move?
 #             s.board.pop()
 #         s.board.pop()
 #     return ret

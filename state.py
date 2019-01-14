@@ -30,7 +30,7 @@ class State(object):
 
         if self.board.has_kingside_castling_rights(chess.WHITE):
             assert bstate[7] == 4
-            bstate[7] = 7
+            bstate[7] = 7                                        # you can only castle once in a game. The prerequisite for castling is that the king has not yet moved.
 
         if self.board.has_queenside_castling_rights(chess.BLACK):
             assert bstate[56] == 12
