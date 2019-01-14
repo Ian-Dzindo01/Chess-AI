@@ -15,7 +15,7 @@ Usage
 
 TODOs
 -----
-1. Implement a score function which evaluates how well the computer is playing.
+1. Implement a rating system.
 2. Look into minimax.
 
 Advanced:
