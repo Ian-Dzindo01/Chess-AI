@@ -15,8 +15,8 @@ Usage
 
 TODOs
 -----
-1. Set up OpenCL or something similar to train faster.
-2. Train on more data.
+1. Implement en passant and castling.
+2. Implement a score function which evaluates how well the computer is playing.
 
 Advanced:
 
