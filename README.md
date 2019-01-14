@@ -15,13 +15,13 @@ Usage
 
 TODOs
 -----
-1. Implement a rating system.
-2. Look into minimax.
+1. Look into minimax and rating.
+2. Decide on a good number of epochs.
 
 Advanced:
 
 3. Add RL self play learning support.
-4. ~~Roll out search beyond 1-ply~~.
+4. Roll out search beyond 1-ply.
 
 Implementation
 -----
