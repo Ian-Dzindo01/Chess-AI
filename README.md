@@ -1,6 +1,6 @@
 # ChessAI
 
-An implementation of a neural network chess.
+An implementation of a neural network chess opponent.
 
 <img width=600px src="https://github.com/Ian-Dzindo01/Chess-AI/blob/master/screenshot.png" />
 
