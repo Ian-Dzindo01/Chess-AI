@@ -37,8 +37,3 @@ Training Set
 -----
 
 The value function was trained on 100K board positions for now. More trained functions expected in the near future. Data is from http://www.kingbase-chess.net/
-
-Credits:
-------
-
-Credits to https://github.com/geohot and his livestream: https://www.youtube.com/watch?v=RFaFmkCEGEs&t=9590s for teaching me how to do this properly.
